@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Customer Segmentation Analysis Results</h2>
+
+        <h3>Cluster Summary</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Cluster</th>
+                    <th>Mean Age</th>
+                    <th>Mean Annual Income (k$)</th>
+                    <th>Mean Spending Score (1-100)</th>
+                    <th>Number of Customers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cluster, row in analysis_results.iterrows() %}
+                <tr>
+                    <td>{{ cluster }}</td>
+                    <td>{{ row['Mean Age']|round(2) }}</td>
+                    <td>{{ row['Mean Annual Income (k$)']|round(2) }}</td>
+                    <td>{{ row['Mean Spending Score (1-100)']|round(2) }}</td>
+                    <td>{{ row['Number of Customers'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Visualizations</h3>
+        <div class="row">
+            {% for plot in plots %}
+            <div class="col-md-6 mb-4">
+                <img src="data:image/png;base64,{{ plot }}" class="img-fluid" alt="Plot Image">
+            </div>
+            {% endfor %}
+        </div>
+
+        <h3>Gender Ratio Per Cluster</h3>
+        <div class="row">
+            {% for chart in gender_pie_charts %}
+            <div class="col-md-4 mb-4">
+                <img src="data:image/png;base64,{{ chart }}" class="img-fluid" alt="Gender Pie Chart">
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">Upload Another File</a>
+    </div>
+</body>
+</html>
