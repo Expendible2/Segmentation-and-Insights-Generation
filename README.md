@@ -36,24 +36,32 @@ The uploaded CSV **must contain** the following columns:
 ## 📦 Installation and Setup
 
 ### 🔧 1. Clone the repository
+
 git clone https://github.com/YOUR_USERNAME/Segmentation-and-Insights-Generation.git
+
 cd Segmentation-and-Insights-Generation
 
-###📥 2. Install dependencies
+### 📥 2. Install dependencies
+
 pip install -r requirements.txt
 
-###▶️ 3. Run the Flask app
+### ▶️ 3. Run the Flask app
+
 python app.py
 
-###🌐 4. Visit in browser
+### 🌐 4. Visit in browser
+
 http://127.0.0.1:5000/
 
 
-###🧠 How It Works
+### 🧠 How It Works
+
 1.Upload CSV via the web interface.
 
 2.App performs preprocessing, including:
+  
   -Validating required columns
+  
   -Scaling features
 
 3.Elbow Method determines optimal clusters (k).
@@ -61,21 +69,30 @@ http://127.0.0.1:5000/
 4.KMeans Clustering segments the data.
 
 5.Outputs include:
+  
   -Summary table with mean age, income, spending score per cluster
+  
   -Multiple visualizations including 2D, 3D, and pie charts
 
 
-###🛠️ Tech Stack
+### 🛠️ Tech Stack
 1.Python 3
+
 2.Flask - Web framework
+
 3.Pandas - Data manipulation
+
 4.Matplotlib / Seaborn - Plotting
+
 5.Scikit-learn - KMeans clustering
+
 6.kneed - To find the Elbow point
+
 7.HTML + Bootstrap - Frontend styling
 
 
-###✨ Highlights
+### ✨ Highlights
+
 💡 Automatically chooses the number of clusters using KneeLocator
 
 📉 Uses visual storytelling to support data-driven decisions
@@ -85,8 +102,12 @@ http://127.0.0.1:5000/
 📤 User-friendly CSV upload system
 
 
-###🧪 Use Cases
+### 🧪 Use Cases
+
 1.Retail Customer Segmentation
+
 2.Marketing Target Group Identification
+
 3.Business Intelligence Dashboards
+
 4.Ecommerce Customer Clustering
